@@ -11,6 +11,7 @@ import datetime
 
 
 class Task(db.Model):
+
     """
         Model representing the task table.
         Use instances and init values to populate the table.
@@ -41,6 +42,7 @@ class Task(db.Model):
 
 
 class User(db.Model):
+
     """
         Model representing the user table.
         Use instances and init values to populate the table.

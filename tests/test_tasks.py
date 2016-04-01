@@ -15,6 +15,7 @@ TEST_DB = 'test.db'
 
 
 class TasksTests(unittest.TestCase):
+
     """
         Tasks unit test.
     """

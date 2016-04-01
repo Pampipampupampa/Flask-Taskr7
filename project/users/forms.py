@@ -13,11 +13,12 @@ from wtforms.validators import InputRequired, Length, EqualTo, Email
 
 # Forms
 class RegisterForm(Form):
+
     """
         Create a form handler/validator for registration
     """
     name = StringField('Username', validators=[InputRequired(),
-                       Length(min=6, max=25)])
+                                               Length(min=6, max=25)])
     email = StringField('Email', validators=[InputRequired(), Email(),
                                              Length(min=6, max=40)])
     password = PasswordField('Password', validators=[InputRequired(),
@@ -29,6 +30,7 @@ class RegisterForm(Form):
 
 
 class LoginForm(Form):
+
     """
         Create a form handler/validator for Login
     """

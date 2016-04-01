@@ -4,6 +4,9 @@ from flask import Flask, render_template, request
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import Bcrypt
 
+# Api with library
+from flask_restful import Api
+
 import datetime
 
 app = Flask(__name__)
@@ -14,19 +17,17 @@ db = SQLAlchemy(app)
 from project.users.views import users_blueprint
 from project.tasks.views import tasks_blueprint
 
+# Api by hands
+# from project.api.views import api_blueprint
+# app.register_blueprint(api_blueprint)
 
 # Register our blueprints
 app.register_blueprint(users_blueprint)
 app.register_blueprint(tasks_blueprint)
 
-# Api by hands
-# from project.api.views import api_blueprint
-# app.register_blueprint(api_blueprint)
-
-# Api with library
-from flask_restful import Api
 from project.api.views import ApiTasks, ApiTaskId
 
+# Add api
 api = Api(app)
 api.add_resource(ApiTasks, '/api/v1/tasks/', endpoint='tasks')
 api.add_resource(ApiTaskId, '/api/v1/tasks/<int:task_id>', endpoint='task')

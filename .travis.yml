@@ -1,0 +1,16 @@
+# Specific language
+language: python
+
+# Python versions to check
+python:
+  - "3.4"
+  - "2.7"
+
+# Install requirements
+install:
+  - pip install -r requirements.txt
+
+# How to run tests
+script:
+  - nosetests
+

@@ -78,10 +78,12 @@ def abort_if_wrong_user(user_id, task_user_id):
 # Routes
 
 class ApiTasks(Resource):
+
     """
         Overload Api base class Resource.
         Support for GET and POST.
     """
+
     def __init__(self):
         # Parser for add a new task.
         self.parser = reqparse.RequestParser()
@@ -148,6 +150,7 @@ class ApiTasks(Resource):
 
 
 class ApiTaskId(Resource):
+
     """
         Overload Api base class Resource.
         Api on direct task id.

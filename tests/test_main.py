@@ -14,6 +14,7 @@ TEST_DB = 'test.db'
 
 
 class MainTests(unittest.TestCase):
+
     """
         Users unit test.
     """

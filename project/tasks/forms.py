@@ -12,9 +12,11 @@ from wtforms.validators import InputRequired
 
 
 class AddTaskForm(Form):
+
     """
         Create a form handler/validator
     """
+
     # task_id = IntegerField('Priority')
     name = StringField('Task Name', validators=[InputRequired(), ])
     due_date = DateField('Due Date (dd/mm/yyyy)', validators=[InputRequired(), ],
