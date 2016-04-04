@@ -55,6 +55,11 @@ class MainTests(unittest.TestCase):
         self.assertEquals(response.status_code, 404)
         self.assertIn(b'Sorry your lost. There\xe2\x80\x99s nothing here.', response.data)
 
+    def test_index(self):
+        """ Ensure flask was set up correctly. """
+        response = self.app.get('/', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
 # Can’t pass right now. Explain later.
     # def test_500_error(self):
     #     bad_user = User(name='Jeremy', email='jeremy@realpython.com', password='django')
