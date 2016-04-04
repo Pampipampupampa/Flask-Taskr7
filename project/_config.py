@@ -18,7 +18,7 @@ class BaseConfig(object):
     DEBUG = False
     SECRET_KEY = 'Trb\x8e&\x06Q\x1eYU\xb1U\xf4_\xfdpEua\x97"\x8d]L'
     WTF_CSRF_ENABLED = True
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URI']
     print(SQLALCHEMY_DATABASE_URI)
 
 
