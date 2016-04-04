@@ -1,16 +1,17 @@
-# Specific language
 language: python
-
-# Python versions to check
 python:
-  - "3.4"
-  - "2.7"
-
-# Install requirements
+- '3.4'
+- '2.7'
 install:
-  - pip install -r requirements.txt
-
-# How to run tests
+- pip install -r requirements.txt
 script:
-  - nosetests
-
+- nosetests
+deploy:
+  provider: heroku
+  api_key:
+    secure: voHXifSjaLfHwViaTs7bBZe8/eVhkKIovUHsVWv7Ebdi/RUPEWMOb8LsI2nozlmWrBx7NYcovFe0pf+Ysd915XyGhN4ABjSXkeKLQ1TtkIrgcoYfyaq/o1y4TfwPot1eSEzZ/m2ySvU9QV80F0e3KP+0vcEr26sioOCB37kHAKuhuAG8eOzhdsDIDvpFHAVBZRtNVKDX5RaxNOu19vtNkgUzXHbjDogfNYfjaaXFjeKlcyveokWnKfys0D3KqdYaPIRl20R8VeItFTrUWBXpIyxL1gyaL7UxhM6rab3f1SNngp0Xxn+eENrTPB2kolmkEdMDkNvaPw8VupW/QWUx4qcU5m87BeYZlCso5srhvum1dvYTV0AqNAntkblmjPRU5DjVcOkTiHGs4wfz6PFM590WdX3swSz0VjINQcWv3FsDVilKM574XCoh2uxcAXRyaO1rCpwEVw3EIYtBHKj/QLM3VljfG/Zg/S26KFpyPOY5+kAzvmwOMraf/UV90WzReOx+omfHo43ts6azhZud/A98xqNPn8r3B+uOgnr8qRai3HZlEhuHeJ5kidjn96HHVJbIPDdZ6JXVNeY6BMdxU78eAgawPaHUE6SQSV2L2JMjfj+Kzxvcp1DowXe3WNzGOGKIIMRzTfPy4FfuKZGJvTCAGOZ5Vym1u/bDeLw0JRQ=
+  app: 'yes'
+  on:
+    repo: Pampipampupampa/Flask-Taskr7
+    branch: master
+    python: '3.4'
