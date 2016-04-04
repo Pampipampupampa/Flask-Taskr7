@@ -2,16 +2,10 @@
 from __future__ import unicode_literals  # Python2 unicode
 
 
-import os
 import unittest
 
 from project import app, db, bcrypt
-from project._config import basedir
 from project.models import User, Task
-
-
-# Database used for testing
-TEST_DB = 'test.db'
 
 
 class TasksTests(unittest.TestCase):
@@ -27,11 +21,7 @@ class TasksTests(unittest.TestCase):
             Executing prior to each tasks.
             Create environnement where tests while be executing.
         """
-        app.config['TESTING'] = True
-        app.config['WTF_CSRF_ENABLED'] = False
-        app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-                                                os.path.join(basedir, TEST_DB)
+        app.config.from_object('project._config.TestConfig')
         self.app = app.test_client()
         db.create_all()
 

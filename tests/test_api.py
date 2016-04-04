@@ -1,21 +1,16 @@
 # -*- coding:Utf8 -*-
 # tests/test_api.py
 
-import os
 import unittest
 
 from datetime import date
 
 from project import app, db, bcrypt
-from project._config import basedir
 from project.models import Task, User
 
 
-# Database used for testing
-TEST_DB = 'test.db'
-
-
 class APITests(unittest.TestCase):
+
     """
         API unit test.
     """
@@ -28,11 +23,7 @@ class APITests(unittest.TestCase):
             Create environnement where tests will be executing.
             Start server without the debug mode.
         """
-        app.config['TESTING'] = True
-        app.config['WTF_CSRF_ENABLED'] = False
-        app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-                                                os.path.join(basedir, TEST_DB)
+        app.config.from_object('project._config.TestConfig')
         self.app = app.test_client()
         db.create_all()
 

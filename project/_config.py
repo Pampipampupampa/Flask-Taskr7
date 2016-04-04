@@ -9,16 +9,29 @@ import os
 # Grabs the folder where the script runs
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-DATABASE = "flask-taskr.db"
-WTF_CSRF_ENABLED = True
-SECRET_KEY = "secret"
+TEST_DB = 'test.db'  # Database used for testing
 
-# Defines the full path of the database
-DATABASE_PATH = os.path.join(basedir, DATABASE)
 
-# Database URI
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATABASE_PATH
+# Handle all configurations here
+class BaseConfig(object):
 
-# Define app mode.
-# DEBUG = False  # Deployement to heroku
-DEBUG = True   # Testing
+    DEBUG = False
+    SECRET_KEY = 'Trb\x8e&\x06Q\x1eYU\xb1U\xf4_\xfdpEua\x97"\x8d]L'
+    WTF_CSRF_ENABLED = True
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URI']
+    print(SQLALCHEMY_DATABASE_URI)
+
+
+class TestConfig(BaseConfig):
+    DEBUG = False
+    TESTING = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, TEST_DB)
+
+
+class DevelopmentConfig(BaseConfig):
+    DEBUG = True
+
+
+class ProductionConfig(BaseConfig):
+    DEBUG = False

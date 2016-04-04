@@ -8,10 +8,11 @@ from flask.ext.bcrypt import Bcrypt
 from flask_restful import Api
 
 import datetime
+import os
 
 app = Flask(__name__)
-app.config.from_pyfile('_config.py')
 bcrypt = Bcrypt(app)
+app.config.from_object(os.environ['APP_SETTINGS'])
 db = SQLAlchemy(app)
 
 from project.users.views import users_blueprint
