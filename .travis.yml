@@ -15,3 +15,6 @@ deploy:
     python: '3.4'
   api_key:
     secure: XIqkYAP4UvUjN3CqFSHGpB5jpRIL/xbMKgrQp5YIOgeyKUFJaEl6XzXhSOd6wrNbTSNHRpC2Dfqco0xjaX/KqcAejIQIZZQ5rkeOdfkjhXHCHsO/53uVf//xzXWXmHSo6k/dOXH7vwm/gxdZ9Tftijx2GAs2zDcbwV3OwQy8i0KqTtKLt+blUHnQ5F9e3uMduEn3GW+O/HcM/u0KQM+sySqhsabykXVnf3CSHedobCN29jULfJNfqJip4zjspNLNEPmLPqd9e4344Hh0TdoGjsOpnsW/3D1EAGc2kVHmaRH1jTqzCyHOMK3xtM7utXBx2edP/ssoHe5/wOb9VLIthZYaaG5LG8V9BszkVGPHQ3Xgukgsx1BCF5qmqYEgTpuLY48Bpe4VZkf0WcMvM3eqwdt7cUtXNwid+Rfr5RBOcWeHy4GSG3wEOb+ilx+yVDM1tZ101pIYoxcUzldPUysGyrllBUK72hhht0iI3DzwgNgmtYJhf7Um4weDIuJoFKwhw33diebITaDpJIc2c0kgTMt9ckxGepvAwYnMAvBJTXEGNVy4AyhKu/Jpiw9rECzsBv7nlSLGjfxy2Bdk6jahvPLe3uiEFdytAnehX7L1+Cw90Q3v+jzdnxqQA8UJBP/upmapIPD1xjK9qeiVRmyKXM3/tax7r+IAmCPI1RA9j3Q=
+env:
+- APP_SETTINGS='project._config.ProductionConfig'
+- DATABASE_URL='sqlite:///flask-taskr.db'
